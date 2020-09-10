@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+/* * {
+    font-family: 'Roboto', Arial, sans-serif;
+} */
+
+.container {
+    margin: 0 20%;
+    max-width: 60%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black;
+    margin: 8px 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+.week-list {
+    margin-top: 8px;
+}
+
+.week-list-brand {
+    font-size: 24px;
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        margin: 0;
+        max-width: 100%;
+    }
+}
