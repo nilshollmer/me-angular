@@ -7,14 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ReportListComponent } from './report-list/report-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AboutComponent } from './about/about.component';
 import { ReportDetailsComponent } from './report-details/report-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const appRoutes: Routes = [
     { path : '', component: HomeComponent },
-    { path : 'about', component: AboutComponent },
     { path : 'reports/week/:week', component: ReportListComponent},
     { path : 'reports/week/:week/:title', component: ReportDetailsComponent, data: { week: ':week', title: ':title'} },
     { path : '404', component: PageNotFoundComponent },
@@ -27,7 +25,6 @@ const appRoutes: Routes = [
     TopBarComponent,
     HomeComponent,
     ReportListComponent,
-    AboutComponent,
     ReportDetailsComponent,
     PageNotFoundComponent
   ],

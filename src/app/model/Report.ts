@@ -1,4 +1,8 @@
 export class Report {
-    title: string;
-    link: string;
+    kmom: string;
+    data: Array<Question>;
+}
+
+export class Question {
+
 }
