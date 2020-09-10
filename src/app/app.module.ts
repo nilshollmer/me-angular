@@ -5,16 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ReportListComponent } from './report-list/report-list.component';
+import { ReportComponent } from './report/report.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReportDetailsComponent } from './report-details/report-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const appRoutes: Routes = [
     { path : '', component: HomeComponent },
-    { path : 'reports/week/:week', component: ReportListComponent},
-    { path : 'reports/week/:week/:title', component: ReportDetailsComponent, data: { week: ':week', title: ':title'} },
+    { path : 'reports/week/:week', component: ReportComponent},
     { path : '404', component: PageNotFoundComponent },
     { path : '**', redirectTo: '/404'}
 ];
@@ -24,8 +22,7 @@ const appRoutes: Routes = [
     AppComponent,
     TopBarComponent,
     HomeComponent,
-    ReportListComponent,
-    ReportDetailsComponent,
+    ReportComponent,
     PageNotFoundComponent
   ],
   imports: [

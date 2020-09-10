@@ -1,6 +1,4 @@
 
-<header>
-
 <nav ngbNav #nav="ngbNav" class="navbar navbar-light bg-light">
     <a [routerLink]="['/']" class="navbar-brand">
         <img
@@ -14,7 +12,7 @@
     <div ngbDropdown class="nav-item">
         <a href (click)="false" class="nav-link" ngbDropdownToggle>Reports</a>
         <div ngbDropdownMenu>
-            <h6 class="dropdown-header">Week</h6>-
+            <h6 class="dropdown-header">Kmom</h6>
             <button ngbDropdownItem [routerLink]="['/reports/week/1']">1</button>
             <button ngbDropdownItem [routerLink]="['/reports/week/2']">2</button>
             <button ngbDropdownItem [routerLink]="['/reports/week/3']">3</button>
@@ -25,6 +23,3 @@
         </div>
     </div>
 </nav>
-
-
-</header>

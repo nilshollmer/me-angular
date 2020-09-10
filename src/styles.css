@@ -3,7 +3,7 @@
     font-family: 'Roboto', Arial, sans-serif;
 } */
 
-.container {
+.content {
     margin: 0 20%;
     max-width: 60%;
 }
@@ -32,12 +32,9 @@ p {
     margin: 0;
 }
 
-.week-list {
-    margin-top: 8px;
-}
-
-.week-list-brand {
-    font-size: 24px;
+.nav {
+    margin: 0 20%;
+    max-width: 60%;
 }
 
 @media screen and (max-width: 767px) {

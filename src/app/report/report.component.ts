@@ -1,14 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { reports } from '../reports';
 
 @Component({
-  selector: 'app-report-list',
-  templateUrl: './report-list.component.html',
-  styleUrls: ['./report-list.component.css']
+  selector: 'app-report',
+  templateUrl: './report.component.html',
+  styleUrls: ['./report.component.css']
 })
-export class ReportListComponent implements OnInit {
+export class ReportComponent implements OnInit {
     // reports: <Report>;
 
     @Input()

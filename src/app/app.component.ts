@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { ReportListComponent } from './report-list/report-list.component';
+import { ReportComponent } from './report/report.component';
 
 @Component({
     selector: 'app-root',
