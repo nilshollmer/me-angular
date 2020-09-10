@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const appRoutes: Routes = [
     { path : '', component: HomeComponent },
-    { path : 'reports/week/:week', component: ReportComponent},
+    { path : 'reports/week/:kmom', component: ReportComponent},
     { path : '404', component: PageNotFoundComponent },
     { path : '**', redirectTo: '/404'}
 ];

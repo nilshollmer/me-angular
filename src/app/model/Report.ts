@@ -1,4 +1,4 @@
 export class Report {
-    kmom: number;
-    data: any;
+    kmom: string;
+    data: string;
 }

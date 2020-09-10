@@ -11,18 +11,20 @@ export class ReportComponent implements OnInit {
     // reports: <Report>;
 
     @Input()
-    currentWeek = 0;
+    kmom = 0;
+
+    data: object;
 
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
-            this.currentWeek = params['week'];
+            this.kmom = params['kmom'];
         });
 
     }
 
     setCurrentWeek(week) {
-        this.currentWeek = week;
+        this.kmom = week;
     }
 }
