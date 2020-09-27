@@ -1,4 +1,5 @@
 export class Report {
-    kmom: number;
+    week: number;
+    title: string;
     data: object;
 }

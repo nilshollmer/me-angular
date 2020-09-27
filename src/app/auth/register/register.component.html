@@ -1,0 +1,21 @@
+<!-- Default form register -->
+    <form class="text-center border border-light p-5">
+
+      <p class="h4 mb-4">Registrera</p>
+      <!-- E-mail -->
+      <input type="email" id="formEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email" name="formEmail">
+
+      <!-- Password -->
+      <input type="password" id="formPassword" class="form-control" placeholder="Password" [(ngModel)]="password" name="formPassword">
+      <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+
+      </small>
+
+      <input type="password" id="formVerifyPassword" class="form-control" placeholder="Verify password" [(ngModel)]="verifyPassword" name="formVerifyPassword">
+
+
+      <!-- Sign up button -->
+      <button [disabled]="password !== '' && password !== verifyPassword" color="info" block="true" class="my-4" (click)="registerUser()">Register</button>
+
+    </form>
+    <!-- Default form register -->

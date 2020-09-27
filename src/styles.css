@@ -2,6 +2,10 @@
 /* * {
     font-family: 'Roboto', Arial, sans-serif;
 } */
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
 
 .content {
     margin: 0 20%;
@@ -30,16 +34,4 @@ a:hover {
 
 p {
     margin: 0;
-}
-
-.nav {
-    margin: 0 20%;
-    max-width: 60%;
-}
-
-@media screen and (max-width: 767px) {
-    .container {
-        margin: 0;
-        max-width: 100%;
-    }
 }

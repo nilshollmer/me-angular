@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import { ReportService } from '../report.service';
 
 
@@ -8,27 +10,42 @@ import { ReportService } from '../report.service';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit {
+export class ReportComponent implements OnInit, OnDestroy {
     @Input()
-    kmom = 0;
+    week: number;
+    title: string;
     data: string;
-    private subscription: any;
+    error: {
+        title: "No report found",
+        data: "Sorry, something was not right in you request."
+    };
+    private subscription: Subscription;
 
-    constructor(private reportService: ReportService,
-        private route: ActivatedRoute) { }
+    constructor(
+        private reportService: ReportService,
+        private route: ActivatedRoute
+    ) { }
 
-    ngOnInit(): void {
-        // console.log(this.reportService.reports);
+    loadData() {
         this.subscription = this.route.params.subscribe(params => {
-            this.kmom = params['kmom'];
-            this.reportService.fetchReport(this.kmom)
-                .subscribe((data) => {
-                    this.data = data;
+            this.week = params['week'];
+            this.reportService.getReport(this.week)
+                .subscribe(next => {
+                    this.week = next.data["week"];
+                    this.title = next.data["title"];
+                    this.data = next.data["data"];
+                }, error => {
+                    console.log(error);
                 });
         });
+    }
+
+    ngOnInit(): void {
+        this.loadData();
     }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
+
 }

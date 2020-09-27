@@ -1,0 +1,29 @@
+<!-- Default form login -->
+<form *ngIf="!currentUser" class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">Sign in</p>
+
+  <!-- Email -->
+  <input type="email" id="formEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email" name="formName">
+
+  <!-- Password -->
+  <input type="password" id="formPassword" class="form-control mb-4" placeholder="Password" [(ngModel)]="password" name="formPassword">
+
+
+  <!-- Login button -->
+  <button color="info" block="true" class="my-4" type="submit" (click)="login()">Login</button>
+
+  <!-- Register -->
+  <p>Not a member?
+    <a [routerLink]="['/auth/register']">Register</a>
+  </p>
+</form>
+
+<form *ngIf="currentUser" class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">You are logged in as {{ currentUser }}</p>
+
+  <!-- Logout button -->
+  <button color="info" block="true" class="my-4" type="submit" (click)="logout()">Logout</button>
+
+</form>

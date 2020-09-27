@@ -1,3 +1,7 @@
-<h1>Kmom {{ kmom }}</h1>
-
-<markdown [data]="data"></markdown>
+<h1>
+    {{ title }}
+    <button class="float-right btn btn-info" [routerLink]="['/reports/edit/', week]">Edit</button>
+</h1>
+<hr>
+<markdown [data]="data">
+</markdown>
