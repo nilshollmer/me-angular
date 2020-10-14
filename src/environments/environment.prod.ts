@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  dbUrl: 'https://someotherserver'
+  dbUrl: 'https://me-api.nilshollmer.me/me-api/'
 };

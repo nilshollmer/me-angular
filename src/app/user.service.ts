@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,14 +13,16 @@ export class UserService {
     constructor(private http: HttpClient) {
     }
 
+    onRegisterEvent = new EventEmitter();
+
     registerUser(email, password) {
 
         this.http.post<any>(`${environment.dbUrl}register`, { email, password }).subscribe(
             next => {
-                console.log(next);
+                this.onRegisterEvent.emit(next["data"]);
             },
             error => {
-                console.log(error);
+                this.onRegisterEvent.emit(error["error"].errors);
             });
     }
 }

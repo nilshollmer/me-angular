@@ -35,18 +35,19 @@ export class ReportService {
             );
     }
 
-    createReport(week, title, data) {
-        this.http.post<any>(`${ environment.dbUrl }reports/add`, { week, title, data })
+    createReport(body) {
+        this.http.post<any>(`${ environment.dbUrl }reports/add`, body)
             .subscribe(
                 (next) => {
-                    console.log(next)
-                    this.onReportCreateEvent.emit();
+                    console.log("1")
+                    this.onReportCreateEvent.emit(next["data"]);
                 },
                 (error) => {
-                    console.log(error)
+                    this.onReportCreateEvent.emit(error["error"].errors);
                 }
             );
     }
+
     constructor(private http: HttpClient) {
 
     }
