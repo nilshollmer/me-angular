@@ -19,6 +19,7 @@ export class ReportComponent implements OnInit, OnDestroy {
         title: "No report found",
         data: "Sorry, something was not right in you request."
     };
+
     private subscription: Subscription;
 
     constructor(

@@ -31,15 +31,10 @@ export class ReportEditComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.loadData();
-
-        // this.token = this.authService.getToken();
         this.updateReportSubscription = this.reportService.onReportUpdateEvent.subscribe(
-            (next) => {
-                console.log(next);
-                this.router.navigate(['reports', 'week', next]);
-            },
-            (error) => {
-                console.log(error);
+            (response) => {
+                console.log(response);
+                this.router.navigate(['reports', 'week', response]);
             }
         );
     }
@@ -73,11 +68,4 @@ export class ReportEditComponent implements OnInit, OnDestroy {
         }
         this.reportService.updateReport(body);
     }
-    // createNewReport() {
-    //
-    // };
-    //
-    // fetchReport() {
-    //
-    // }
 }

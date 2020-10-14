@@ -17,8 +17,9 @@ export class ReportAddComponent implements OnInit, OnDestroy {
     week: String;
     title: String;
     data: String;
+    error: String;
 
-    private subscription: Subscription;
+    private createReportSubscription: Subscription;
 
     constructor(
         private reportService: ReportService,
@@ -31,11 +32,21 @@ export class ReportAddComponent implements OnInit, OnDestroy {
 
     }
     ngOnInit(): void {
-        // this.subscription:
+        this.createReportSubscription = this.reportService.onReportCreateEvent.subscribe(
+            (response) => {
+                console.log(response);
+                if (response.status === 201) {
+                    console.log(response);
+                    this.router.navigate(['reports', 'week', this.week]);
+                } else {
+                    this.error = response.detail;
+                }
+            }
+        )
     }
 
     ngOnDestroy() {
-        // this.subscription.unsubscribe();
+        this.createReportSubscription.unsubscribe();
     }
 
     saveReport() {
@@ -44,6 +55,6 @@ export class ReportAddComponent implements OnInit, OnDestroy {
             title: this.title,
             data: this.data
         }
-        this.reportService.updateReport(body);
+        this.reportService.createReport(body);
     }
 }
