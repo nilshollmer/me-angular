@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { AuthenticationService } from '../../authentication.service';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -6,7 +10,7 @@ import { UserService } from '../../user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
     @Input()
     email: string;
@@ -15,9 +19,31 @@ export class RegisterComponent implements OnInit {
     passwordsMatch: false;
     error: string;
 
-    constructor(private userService: UserService) { }
+    registerSubscription: Subscription;
+
+    constructor(
+        private userService: UserService,
+        private authService: AuthenticationService,
+        private route: ActivatedRoute,
+        private router: Router
+    ) { }
 
     ngOnInit(): void {
+        this.registerSubscription = this.userService.onRegisterEvent.subscribe(
+            (response) => {
+                console.log(response.status)
+                if (response.status === 201) {
+                    this.router.navigate(['auth', 'login']);
+                } else if (response.status === 500) {
+                    this.error = response.detail;
+                    console.log(this.error);
+                }
+            }
+        );
+    }
+
+    ngOnDestroy(): void {
+        this.registerSubscription.unsubscribe();
     }
 
 
@@ -33,6 +59,5 @@ export class RegisterComponent implements OnInit {
             return;
         }
         this.userService.registerUser(this.email, this.password);
-
     }
 }

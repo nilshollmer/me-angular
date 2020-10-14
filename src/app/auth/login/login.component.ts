@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     initializeForm() {
         this.currentUser = this.authService.getUser();
-        console.log("hej " + this.currentUser);
         this.loginSubscription = this.authService.onLoginEvent.subscribe(
             (user) => {
                 if (user instanceof User) {
