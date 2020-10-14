@@ -22,13 +22,9 @@
                 <a href (click)="false" class="nav-link" ngbDropdownToggle>Reports</a>
                 <div ngbDropdownMenu>
                     <h6 class="dropdown-header">Kmom</h6>
-                    <button ngbDropdownItem [routerLink]="['/reports/week/1']">1</button>
-                    <button ngbDropdownItem [routerLink]="['/reports/week/2']">2</button>
-                    <button hidden ngbDropdownItem [routerLink]="['/reports/week/3']">3</button>
-                    <button hidden ngbDropdownItem [routerLink]="['/reports/week/4']">4</button>
-                    <button hidden ngbDropdownItem [routerLink]="['/reports/week/5']">5</button>
-                    <button hidden ngbDropdownItem [routerLink]="['/reports/week/6']">6</button>
-                    <button hidden ngbDropdownItem [routerLink]="['/reports/week/7']">7</button>
+                    <span *ngFor="let report of allReports">
+                        <button ngbDropdownItem [routerLink]="['/reports/week/', report]">{{report}}</button>
+                    </span>
                     <div class="dropdown-divider"></div>
                     <button ngbDropdownItem [routerLink]="['/reports/add']">Add new report</button>
                 </div>

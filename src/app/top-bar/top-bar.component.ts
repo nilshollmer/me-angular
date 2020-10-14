@@ -16,34 +16,32 @@ export class TopBarComponent implements OnInit {
 
     private reportSubscription: Subscription;
 
-
     constructor(
         private router: Router,
         private reportService: ReportService
     ) { }
-    //
-    // loadReports() {
-    //     this.allReports = [];
-    //     this.reportService.getAllReports().subscribe(
-    //         (next) => {
-    //
-    //
-    //             Object.entries(next["data"]).forEach(element => {
-    //                 console.log(element[1].week);
-    //                 this.allReports.push(element[1].week);
-    //             });
-    //             console.log(this.allReports)
-    //         }
-    //     );
-    //
-    // }
+
+    loadReports() {
+        this.allReports = [];
+        this.reportService.getAllReports().subscribe(
+            (response) => {
+                Object.entries(response["data"]).forEach(element => {
+                    // console.log(element[1]["week"]);
+                    this.allReports.push(element[1]["week"]);
+                });
+                // console.log(this.allReports)
+            }
+        );
+
+    }
+
     ngOnInit(): void {
-        // this.loadReports();
-        // this.reportSubscription = this.reportService.onReportCreateEvent.subscribe(
-        //     (next) => {
-        //         this.loadReports();
-        //     }
-        // )
+        this.loadReports();
+        this.reportSubscription = this.reportService.onReportCreateEvent.subscribe(
+            (next) => {
+                this.loadReports();
+            }
+        )
     }
 
     ngOnDestroy(): void {
