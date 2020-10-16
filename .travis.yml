@@ -14,19 +14,16 @@ addons:
     packages:
       - google-chrome-stable
 
-git:
-    submodules: false
+cache:
+  directories:
+    - ./node_modules
 
-before_script:
+install:
     - npm install
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
 
-after_success:
-    - npm run report-coveralls
-    - npm run report-codecov
-
-cache:
-  directories:
-    - ./node_modules
+# after_success:
+#     - npm run report-coveralls
+#     - npm run report-codecov
