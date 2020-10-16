@@ -4,8 +4,7 @@
 
 export const environment = {
     production: false,
-  // dbUrl: 'http://localhost:1337/'
-    dbUrl: 'https://me-api.nilshollmer.me/'
+    dbUrl: 'http://localhost:1337/'
 };
 
 /*
