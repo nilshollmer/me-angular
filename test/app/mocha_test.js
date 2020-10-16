@@ -13,8 +13,23 @@ const By = webdriver.By;
 
 let browser;
 
-// Test suite
+
+function goToNavLink(target) {
+    browser.findElement(By.linkText(target)).then(function(element) {
+        element.click();
+    });
+}
+
+function matchUrl(target) {
+    browser.getCurrentUrl().then(function(url) {
+        assert.ok(url.endsWith("/" + target));
+    });
+}
+
+
 test.describe("Me-angular", function() {
+    this.timeout(0);
+
     beforeEach(function(done) {
         this.timeout(20000);
         browser = new webdriver.Builder().
@@ -31,19 +46,6 @@ test.describe("Me-angular", function() {
         browser.quit();
         done();
     });
-
-
-    function goToNavLink(target) {
-        browser.findElement(By.linkText(target)).then(function(element) {
-            element.click();
-        });
-    }
-
-    function matchUrl(target) {
-        browser.getCurrentUrl().then(function(url) {
-            assert.ok(url.endsWith("/" + target));
-        });
-    }
 
     test.it("Test go to report 1", async function(done) {
         goToNavLink("Reports");
