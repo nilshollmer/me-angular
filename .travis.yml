@@ -11,7 +11,8 @@ install:
     - npm install
 
 before_script:
-  - npm install -g @angular/cli
+    - npm install -g @angular/cli
 
 script:
-- ng build --prod --base-href https://github.com/nilshollmer/me-angular
+    - npm test
+    - ng build --prod --base-href https://github.com/nilshollmer/me-angular
