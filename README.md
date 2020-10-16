@@ -1,4 +1,7 @@
-# MeAppAngular
+# MeAppAngular'
+
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nilshollmer/me-angular/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nilshollmer/me-angular/?branch=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 

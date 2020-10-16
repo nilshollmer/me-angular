@@ -17,7 +17,6 @@ before_script:
     - tar -xzf geckodriver-v0.27.0-linux64.tar.gz -C geckodriver
     - export PATH=$PATH:$PWD/geckodriver
     - ng build --prod
-    - ng serve
 
 script:
     - npm test
