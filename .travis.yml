@@ -5,7 +5,10 @@ node_js:
     - "11"
     - "10"
 
-sudo: required
+sudo: false
+
+git:
+    submodules: false
 
 before_script:
     - npm install
@@ -13,13 +16,6 @@ before_script:
     - mkdir geckodriver
     - tar -xzf geckodriver-v0.27.0-linux64.tar.gz -C geckodriver
     - export PATH=$PATH:$PWD/geckodriver
-    - git clone https://github.com/nilshollmer/me-api.git api
-    - cd api
-    - npm install cors
-    - (npm run test_start &)
-    - cd ..
-    - ng build
-    - (ng serve &)
 
 script:
     - npm test
