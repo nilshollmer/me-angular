@@ -3,8 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  dbUrl: 'http://localhost:1337/'
+    production: false,
+  // dbUrl: 'http://localhost:1337/'
+    dbUrl: 'https://me-api.nilshollmer.me/'
 };
 
 /*
