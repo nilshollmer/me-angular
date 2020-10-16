@@ -15,4 +15,4 @@ before-script:
     - export PATH=$PATH:$PWD/geckodriver
 
 script:
-    - ng test
+    - npm test
