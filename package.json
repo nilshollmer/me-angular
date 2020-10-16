@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test-command": "mocha test/**/*.js",
-    "test": "mocha test/**/*.js",
+    "test": "ng serve & mocha test/**/*.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "ng build --prod && rsync -av dist/me-app-angular/* deploy@nilshollmer.me:/var/www/me-angular.nilshollmer.me/html"
