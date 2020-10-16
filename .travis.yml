@@ -14,5 +14,4 @@ before_script:
     - npm install -g @angular/cli
 
 script:
-    - npm test
-    - ng build --prod --base-href https://github.com/nilshollmer/me-angular
+    - ng serve & npm test
