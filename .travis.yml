@@ -10,5 +10,8 @@ sudo: false
 install:
     - npm install
 
+before-script:
+  - sudo mv geckodriver /usr/local/bin
+
 script:
-  -  npm start && mocha test/**/*.js
+  -  npm test
