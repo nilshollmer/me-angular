@@ -28,7 +28,7 @@
               "src/styles.css"
             ],
             "scripts": [
-                "node_modules/marked/lib/marked.js"
+              "node_modules/marked/lib/marked.js"
             ]
           },
           "configurations": {
@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "me-app-angular"
+    }
+  },
+  "defaultProject": "me-app-angular",
+  "cli": {
+    "analytics": "599af4d0-9274-4f80-8cc2-d47fcef41115"
+  }
 }

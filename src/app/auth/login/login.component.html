@@ -1,7 +1,7 @@
 <!-- Default form login -->
 <form *ngIf="!currentUser" class="text-center border border-light p-5">
 
-  <p class="h4 mb-4">Sign in</p>
+  <h4 class="h4 mb-4">Sign in</h4>
 
   <!-- Email -->
   <input type="email" id="formEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email" name="formName">
@@ -11,7 +11,7 @@
 
 
   <!-- Login button -->
-  <button color="info" block="true" class="my-4" type="submit" (click)="login()">Login</button>
+  <button color="info" block="true" class="my-4" type="submit" name="login" (click)="login()">Sign in</button>
 
   <!-- Register -->
   <p>Not a member?
@@ -21,9 +21,9 @@
 
 <form *ngIf="currentUser" class="text-center border border-light p-5">
 
-  <p class="h4 mb-4">You are logged in as {{ currentUser }}</p>
+  <p class="h4 mb-4" name="logged-in">You are logged in as {{ currentUser }}</p>
 
   <!-- Logout button -->
-  <button color="info" block="true" class="my-4" type="submit" (click)="logout()">Logout</button>
+  <button color="info" block="true" class="my-4" type="submit" name="logout" (click)="logout()">Sign out</button>
 
 </form>
