@@ -20,15 +20,12 @@ cache:
 
 before_install:
     # - sudo mv geckodriver /usr/local/bin
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=4200 http://localhost &
-  ⋮
 
 install:
     - npm install
 
 script:
-  - npm run test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  -  mocha test/**/*.js --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
 
 # after_success:
 #     - npm run report-coveralls
