@@ -19,9 +19,10 @@ cache:
     - ./node_modules
 
 before_install:
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=4200 http://localhost &
-  ⋮
+    - sudo mv geckodriver /usr/local/bin
+  # - # start your web application and listen on `localhost`
+  # - google-chrome-stable --headless --disable-gpu --remote-debugging-port=4200 http://localhost &
+  # ⋮
 
 install:
     - npm install
