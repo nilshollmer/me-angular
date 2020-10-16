@@ -47,9 +47,9 @@ test.describe("Me-angular", function() {
         });
     }
 
-    test.it("Test go to report 1", function(done) {
+    test.it("Test go to report 1", async function(done) {
         goToNavLink("Reports");
-        browser.findElement(By.id("report-1")).click();
+        await browser.findElement(By.id("report-1")).click();
 
         matchUrl("reports/week/1");
 
