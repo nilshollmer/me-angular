@@ -7,12 +7,19 @@ node_js:
 
 sudo: required
 
-before-script:
+before_script:
     - npm install
     - wget https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-linux64.tar.gz
     - mkdir geckodriver
     - tar -xzf geckodriver-v0.27.0-linux64.tar.gz -C geckodriver
     - export PATH=$PATH:$PWD/geckodriver
+    - git clone https://github.com/EpiX0R/jsramverk-me-api.git api
+    - cd api
+    - npm install cors
+    - (npm run test_start &)
+    - cd ..
+    - ng build
+    - (ng serve &)
 
 script:
     - npm test
