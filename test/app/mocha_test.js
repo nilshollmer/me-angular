@@ -15,6 +15,8 @@ let browser;
 
 // Test suite
 test.describe("Me-angular", function() {
+    this.timeout(0);
+    
     test.beforeEach(function(done) {
         this.timeout(20000);
         browser = new webdriver.Builder().

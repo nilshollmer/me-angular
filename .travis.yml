@@ -7,19 +7,8 @@ node_js:
 
 sudo: false
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
-cache:
-  directories:
-    - ./node_modules
-
 install:
     - npm install
 
 script:
-  -  mocha test/**/*.js --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  -  mocha test/**/*.js
