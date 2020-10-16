@@ -16,8 +16,8 @@ let browser;
 // Test suite
 test.describe("Me-angular", function() {
     this.timeout(0);
-    
-    test.beforeEach(function(done) {
+
+    beforeEach(function(done) {
         this.timeout(20000);
         browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.firefox())
@@ -29,7 +29,7 @@ test.describe("Me-angular", function() {
         done();
     });
 
-    test.afterEach(function(done) {
+    afterEach(function(done) {
         browser.quit();
         done();
     });
