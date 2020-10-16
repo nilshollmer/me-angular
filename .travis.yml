@@ -18,15 +18,8 @@ cache:
   directories:
     - ./node_modules
 
-before_install:
-    # - sudo mv geckodriver /usr/local/bin
-
 install:
     - npm install
 
 script:
   -  mocha test/**/*.js --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-
-# after_success:
-#     - npm run report-coveralls
-#     - npm run report-codecov

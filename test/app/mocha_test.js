@@ -8,6 +8,7 @@
 const assert = require("assert");
 const test = require("selenium-webdriver/testing");
 const webdriver = require("selenium-webdriver");
+const firefox = require("selenium-webdriver/firefox");
 const By = webdriver.By;
 
 let browser;
@@ -17,7 +18,10 @@ test.describe("Me-angular", function() {
     test.beforeEach(function(done) {
         this.timeout(20000);
         browser = new webdriver.Builder().
-            withCapabilities(webdriver.Capabilities.chrome()).build();
+            withCapabilities(webdriver.Capabilities.firefox())
+            .setFirefoxOptions(new firefox.Options().headless())
+            .forBrowser('firefox')
+            .build();
 
         browser.get("http://localhost:4200/");
         done();
