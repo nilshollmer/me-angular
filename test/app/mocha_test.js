@@ -52,7 +52,7 @@ test.describe("Me-angular", function() {
         goToNavLink("Reports");
         await browser.findElement(By.id("report-1")).click();
 
-        matchUrl("reports/week/1");
+        await matchUrl("reports/week/1");
 
         done();
     });
