@@ -50,9 +50,9 @@ test.describe("Me-angular", function() {
 
     test.it("Test go to report 1", async function(done) {
         goToNavLink("Reports");
-        await browser.findElement(By.id("report-1")).click();
+        browser.findElement(By.id("report-1")).click();
 
-        await matchUrl("reports/week/1");
+        matchUrl("reports/week/1");
 
         done();
     });
