@@ -38,7 +38,8 @@ test.describe("Me-angular", function() {
             .forBrowser('firefox')
             .build();
 
-        browser.get("http://localhost:4200/");
+        browser.get("https://me-angular.nilshollmer.me/");
+        // browser.get("http://127.0.0.1:4200/");
         done();
     });
 
