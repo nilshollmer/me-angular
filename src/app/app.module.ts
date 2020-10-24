@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +20,10 @@ import { ReportAddComponent } from './report/report-add/report-add.component';
 
 import { AuthInterceptor } from './_helpers/auth.interceptor'
 import { AuthGuard } from './_helpers/auth.guard';
+
+import { ChatService } from './chat.service';
+
+const config: SocketIoConfig = { url: 'https://chatsocket.nilshollmer.me', options: {} };
 
 const appRoutes: Routes = [
     { path : '', component: HomeComponent },
@@ -54,8 +59,10 @@ const appRoutes: Routes = [
     ),
     NgbModule,
     MarkdownModule.forRoot(),
+    SocketIoModule.forRoot(config)
   ],
   providers: [
+      ChatService,
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

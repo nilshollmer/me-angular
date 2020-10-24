@@ -9,3 +9,33 @@
         </div>
     </div>
 </div>
+
+<div class="chat-popup" class="chat-popup" id="myForm" disabled>
+  <form action="/action_page.php" class="chat-form-container">
+      <div class="toggle-chat" [ngClass]="{ 'display': open%2==0 }">
+
+        <header class="chat-header">
+            <h4>chat</h4>
+            <h4 [hidden]="!userSet">Username: {{ userSet }}</h4>
+        </header>
+        <!-- <textarea placeholder="Type message.." name="msg" required></textarea> -->
+        <div class="message-board" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+            <span class="chat-message"  *ngFor="let message of messagelist" [ngClass]="{ 'user-message': message.text.user == userSet }">
+                <span class="chat-time" >{{ message.text.user }} {{ message.text.time }}:</span>
+                {{ message.text.message }}
+            </span>
+        </div>
+        <div [hidden]="userSet" >
+            <input class="chat-input" [(ngModel)]="chatUser" name="chatUser" placeholder="Set your username">
+            <button [disabled]="!chatUser || userSet" class="btn" (click)="setChatUser()">Enter a username and login</button>
+        </div>
+        <div [hidden]="!userSet">
+            <input class="chat-input"(keyup.enter)="sendMsg()" [(ngModel)]="chatMsg" name="chatMsg" placeholder="Your message here..">
+            <button class="btn" (click)="sendMsg()">Send message</button>
+        </div>
+    </div>
+
+    <button type="button" class="open-button" [ngClass]="{ 'display': open%2==1 }" (click)="toggleChat()">Chat</button>
+    <button type="button" class="btn cancel" [ngClass]="{ 'display': open%2==0 }" (click)="unsetChatUser(); toggleChat()">Logout & Close</button>
+  </form>
+</div>

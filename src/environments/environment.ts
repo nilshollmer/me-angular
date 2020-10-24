@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    dbUrl: 'http://localhost:1337/'
+    dbUrl: 'http://localhost:1337/',
+    ws_url: "http://localhost:3000"
 };
 
 /*

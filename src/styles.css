@@ -35,3 +35,120 @@ a:hover {
 p {
     margin: 0;
 }
+
+/* You can add global styles to this file, and also import other style files */
+{box-sizing: border-box;}
+
+/* Button used to open the chat - fixed at the bottom of the page */
+.open-button {
+    display: none;
+    background-color: #555;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 120px;
+    border-top-left-radius: 4px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    font-family: 'Roboto', monospace;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+.chat-header {
+    text-align: center;
+}
+
+/* Add styles to the form container */
+.chat-form-container {
+    display: block;
+    width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Full-width textarea */
+.chat-form-container .message-board {
+    box-sizing: border-box;
+    font-size: 0.8em;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.chat-form-container .chat-message {
+    width: 100%;
+    display: block;
+}
+
+.chat-form-container .user-message {
+    text-align: right;
+}
+.chat-form-container .chat-input {
+    font-family: 'Roboto', monospace;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    overflow-y: auto;
+}
+
+.chat-form-container .chat-time {
+    color: grey;
+    margin-top: 0.2em;
+    display: block;
+}
+/* When the textarea gets focus, do something */
+/* .chat-form-container input:focus {
+  background-color: #ddd;
+  outline: none;
+} */
+
+/* Set a style for the submit/login button */
+.chat-form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.chat-form-container .cancel {
+    display: none;
+    background-color: red;
+}
+/* Add some hover effects to buttons */
+.chat-form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.toggle-chat {
+    display: none;
+}
+
+.display {
+    display: block !important;
+}
